@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+/* कॉम्प्युटर आणि मोठ्या स्क्रीनसाठी नेहमीचा CSS कोड इथे असतो */
+.nav-menu {
+  display: flex;
+  flex-direction: row; /* कॉम्प्युटरवर मेनु एका लाईनमध्ये (आडवे) दिसतील */
+}
+
+/* 📱 मोबाईल स्क्रीनसाठी (जेव्हा स्क्रीन ७६८ पिक्सेलपेक्षा लहान असेल) */
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column; /* मोबाईलवर मेनु एकाखाली एक (उभे) दिसतील */
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: 24px; /* मोबाईलवर फॉन्ट साईझ लहान करणे */
+  }
+  
+  .container {
+    padding: 10px; /* मोबाईलवर बाजूची जागा (padding) कमी करणे */
+  }
+}

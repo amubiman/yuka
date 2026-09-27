@@ -1,18 +1,22 @@
 import React from 'react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import yukaChar from '../assets/yuka.json';
 
 export default function Home() {
   const styles = {
-    hero: { background: 'linear-gradient(135deg, #0B2545, #091C36)', color: '#ffffff', padding: '80px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '40px', flexWrap: 'wrap' },
+    hero: { background: 'linear-gradient(135deg, #0B2545, #091C36)', color: '#ffffff', padding: '40px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '20px', flexWrap: 'wrap' },
     heroLeft: { maxWidth: '650px' },
     tagline: { color: '#00A6FB', fontWeight: 'bold', textTransform: 'uppercase', fontSize: '14px', letterSpacing: '2px', display: 'block', marginBottom: '10px' },
     h1: { fontSize: '48px', fontWeight: 900, lineHeight: 1.2, margin: 0 },
     orangeText: { color: '#F26419' },
-    p: { color: '#cbd5e1', fontSize: '18px', margin: '20px 0', lineHeight: 1.6 },
+    p: { color: '#cbd5e1', fontSize: '18px', margin: '10px 0', lineHeight: 1.6 },
     marathiHook: { color: '#00A6FB', fontWeight: 500, display: 'block', marginTop: '10px' },
     btnContainer: { display: 'flex', gap: '15px', marginTop: '25px' },
     btnOrange: { backgroundColor: '#F26419', color: '#ffffff', border: 'none', padding: '12px 28px', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer', fontSize: '16px' },
     btnBorder: { background: 'transparent', border: '2px solid #00A6FB', color: '#ffffff', padding: '12px 28px', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer', fontSize: '16px' },
-    heroRight: { backgroundColor: '#091C36', border: '2px solid rgba(0, 166, 251, 0.2)', padding: '40px', borderRadius: '16px', textAlign: 'center', minWidth: '280px' },
+    
+    // उजव्या बाजूचा बॉक्स (इथे आपण एरर फिक्स केला आहे)
+    heroRight: { backgroundColor: '#091C36', border: '2px solid rgba(0, 166, 251, 0.2)', padding: '25px', borderRadius: '16px', textAlign: 'center', minWidth: '280px', flex: '1', maxWidth: '360px' },
     
     philosophy: { backgroundColor: '#F26419', color: '#ffffff', padding: '40px 20px', textAlign: 'center' },
     philH2: { fontSize: '28px', fontStyle: 'italic', fontWeight: 800, margin: 0 },
@@ -31,7 +35,7 @@ export default function Home() {
     process: { backgroundColor: '#f9fafb', padding: '80px 20px' },
     grid5: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', maxWidth: '1200px', margin: '0 auto' },
     procCard: { background: '#ffffff', padding: '25px', borderRadius: '12px', textAlign: 'center', borderBottom: '4px solid #00A6FB', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' },
-    procNum: { fontSize: '24px', fontNav: 'bold', color: '#F26419' },
+    procNum: { fontSize: '24px', fontWeight: 'bold', color: '#F26419' },
     procTitle: { fontSize: '18px', fontWeight: 'bold', color: '#0B2545', margin: '5px 0' },
     procDesc: { fontSize: '13px', color: '#777777', margin: 0 },
     
@@ -54,29 +58,40 @@ export default function Home() {
           </h1>
           <p style={styles.p}>
             Data-driven digital marketing, creative strategy & next-gen web design.
-            <span style={styles.marathiHook}>Pratyekasathi "Yu"nik "Ka"hitari..!!</span>
+            <span style={styles.marathiHook}>प्रत्येकासाठी "यु"निक "का"हितरी..!!</span>
           </p>
           <div style={styles.btnContainer}>
             <button style={styles.btnOrange}>View Our Work</button>
             <button style={styles.btnBorder}>Start A Project</button>
           </div>
         </div>
+
+        {/* HERO RIGHT BOX */}
         <div style={styles.heroRight}>
-          <div style={{ fontSize: '60px', marginBottom: '15px' }}>🚀</div>
-          <h3 style={{ fontSize: '22px', fontWeight: 'bold', color: '#00A6FB', margin: 0 }}>YUKA Digital Persona</h3>
-          <p style={{ fontSize: '14px', color: '#94a3b8', marginTop: '10px', marginBotom: 0 }}>Bold. Witty. Result-Oriented.</p>
+          <div style={{ width: '100%', height: '200px', margin: '0 auto 10px auto', overflow: 'hidden' }}> {/* इथे overflow: 'hidden' नक्की टाका जेणेकरून कॅरेक्टर बॉक्सच्या बाहेर जाणार नाही */}
+            <DotLottieReact
+              data={yukaChar}
+              loop
+              autoplay
+              // इथे transform: 'scale(1.4)' जोडले आहे, ज्यामुळे कॅरेक्टर ४०% मोठे दिसेल
+              style={{ width: '100%', height: '100%', transform: 'scale(1.4)' }} 
+            />
+          </div>
+          <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#00A6FB', margin: 0 }}>YUKA Digital Person</h3>
+          <p style={{ fontSize: '13px', color: '#94a3b8', marginTop: '8px', marginBottom: 0 }}>Bold. Witty. Result-Oriented.</p>
         </div>
+
       </header>
 
       {/* PHILOSOPHY BANNER */}
       <section style={styles.philosophy}>
         <h2 style={styles.philH2}>"Posting is easy. Getting noticed is the job."</h2>
-        <p style={styles.philP}>— Ho, aamhi thoda veglan karto! 😉</p>
+        <p style={styles.philP}>— हो, आम्ही थोड वेगळ करतो ! 😉</p>
       </section>
 
       {/* CORE SERVICES GRID */}
       <section style={styles.services}>
-        <h2 style={styles.secTitle}>Aamhi Kay Karto?</h2>
+        <h2 style={styles.secTitle}>आम्ही काय करतो?</h2>
         <div style={styles.line}></div>
         <p style={styles.secSub}>तुमच्या ब्रँडला डिजिटल जगात किंग बनवण्यासाठी आमच्या सेवा</p>
         
