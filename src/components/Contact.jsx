@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 
 export default function Contact() {
-  // फॉर्ममधील डेटा मॅनेज करण्यासाठी स्टेट (State)
   const [formData, setFormData] = useState({
-    fullName: '',
+    name: '',
     businessName: '',
-    email: '',
     phone: '',
-    serviceNeeded: 'Web & UI/UX Development',
-    budgetRange: '₹25,000 - ₹50,000',
-    message: ''
+    email: '',
+    serviceRequirement: 'Web & UI/UX Development'
   });
 
   const handleChange = (e) => {
@@ -18,146 +15,144 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Thank you ${formData.fullName}! YUKA Digital Media team will connect with you soon.`);
-    console.log('Lead Captured:', formData);
+    alert(`Thank you ${formData.name}! YUKA Digital Media team will connect with you soon.`);
+    console.log('Send Requirement Captured:', formData);
   };
 
   const styles = {
-    container: { backgroundColor: '#f9fafb', padding: '80px 20px', minHeight: '100vh' },
-    headerArea: { textAlign: 'center', maxWidth: '800px', margin: '0 auto 60px auto' },
-    tag: { color: '#F26419', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1.5px', fontSize: '13px' },
-    h2: { fontSize: '40px', fontWeight: 900, color: '#0B2545', marginTop: '10px', marginBottom: '5px' },
-    line: { height: '4px', width: '80px', backgroundColor: '#00A6FB', margin: '15px auto' },
-    subtext: { color: '#555555', fontSize: '16px', lineHeight: 1.6 },
+    wrapper: { backgroundColor: '#f9fafb', fontFamily: 'Inter, sans-serif' },
+    container: { maxWidth: '1200px', margin: '0 auto', padding: '0 20px' },
+    sectionPadding: { padding: '100px 20px' },
     
-    // Two Column Grid
-    grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '50px', maxWidth: '1200px', margin: '0 auto' },
+    // Hero
+    hero: { background: 'linear-gradient(135deg, #0B2545, #091C36)', color: '#ffffff', padding: '80px 20px', textAlign: 'center' },
+    heroH1: { fontSize: '48px', fontWeight: 900, margin: 0 },
+    subtext: { color: '#cbd5e1', fontSize: '16px', marginTop: '15px' },
     
-    // Form Column
-    formBox: { backgroundColor: '#ffffff', padding: '40px', borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' },
+    // Two Column Layout
+    grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '50px', marginTop: '50px' },
+    
+    // Contact Details Column
+    infoColumn: { display: 'flex', flexDirection: 'column', gap: '30px' },
+    infoGroup: { backgroundColor: '#ffffff', padding: '30px', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.02)', border: '1px solid #e2e8f0' },
+    officeTitle: { fontSize: '20px', fontWeight: 'bold', color: '#0B2545', marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.5px' },
+    infoText: { fontSize: '15px', color: '#4a5568', lineHeight: 1.6, marginBottom: '15px' },
+    dirBtn: { display: 'inline-block', backgroundColor: '#0B2545', color: '#ffffff', textDecoration: 'none', padding: '8px 16px', borderRadius: '6px', fontWeight: 'bold', fontSize: '13px' },
+    
+    // Enquiry Form Column
+    formBox: { backgroundColor: '#ffffff', padding: '40px', borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.04)', border: '1px solid #e2e8f0' },
     formGroup: { marginBottom: '20px' },
     label: { display: 'block', fontSize: '14px', fontWeight: 'bold', color: '#0B2545', marginBottom: '8px' },
-    input: { width: '100%', padding: '12px 15px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '15px', outline: 'none', backgroundColor: '#f8fafc', transition: 'border-color 0.3s' },
-    select: { width: '100%', padding: '12px 15px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '15px', outline: 'none', backgroundColor: '#f8fafc' },
-    textarea: { width: '100%', padding: '12px 15px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '15px', outline: 'none', backgroundColor: '#f8fafc', height: '100px', resize: 'none' },
-    submitBtn: { backgroundColor: '#F26419', color: '#ffffff', width: '100%', padding: '14px', border: 'none', borderRadius: '8px', fontWeight: 'bold', fontSize: '16px', cursor: 'pointer', transition: 'background-color 0.3s' },
+    input: { width: '100%', padding: '12px 15px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '15px', outline: 'none', backgroundColor: '#f8fafc', boxSizing: 'border-box' },
+    select: { width: '100%', padding: '12px 15px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '15px', outline: 'none', backgroundColor: '#f8fafc', boxSizing: 'border-box' },
+    submitBtn: { backgroundColor: '#F26419', color: '#ffffff', width: '100%', padding: '14px', border: 'none', borderRadius: '8px', fontWeight: 'bold', fontSize: '16px', cursor: 'pointer', letterSpacing: '0.5px', textTransform: 'uppercase' },
     
-    // Info Column
-    infoBox: { display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '30px' },
-    infoCard: { backgroundColor: '#0B2545', color: '#ffffff', padding: '30px', borderRadius: '16px' },
-    infoTitle: { fontSize: '22px', fontWeight: 'bold', marginBottom: '20px', color: '#00A6FB' },
-    infoText: { fontSize: '15px', color: '#e2e8f0', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '10px' },
+    // Map & Social
+    mapSection: { width: '100%', height: '350px', backgroundColor: '#e2e8f0', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#475569', fontWeight: 'bold', border: '2px dashed #00A6FB', margin: '5px 0 0 0' },
+    socialFlex: { display: 'flex', gap: '15px', marginTop: '10px' },
+    socialLink: { color: '#0B2545', backgroundColor: '#f1f5f9', padding: '10px 20px', borderRadius: '25px', textDecoration: 'none', fontWeight: 'bold', fontSize: '14px' },
     
-    // Social Handles
-    socialContainer: { marginTop: '20px' },
-    socialTitle: { fontSize: '16px', fontWeight: 'bold', color: '#ffffff', marginBottom: '12px' },
-    socialFlex: { display: 'flex', gap: '15px' },
-    socialLink: { color: '#ffffff', backgroundColor: '#F26419', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', fontWeight: 'bold', fontSize: '14px' },
-    
-    // Map Placeholder
-    mapBox: { height: '220px', backgroundColor: '#e2e8f0', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#475569', fontWeight: 'bold', border: '2px dashed #00A6FB', position: 'relative', overflow: 'hidden' },
-    whatsappFloat: { backgroundColor: '#25D366', color: 'white', padding: '10px 20px', borderRadius: '30px', fontWeight: 'bold', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px', marginTop: '15px', boxShadow: '0 4px 10px rgba(0,0,0,0.15)' }
+    // Final CTA Block
+    finalBlock: { background: 'linear-gradient(135deg, #0B2545, #091C36)', color: '#ffffff', padding: '80px 20px', textAlign: 'center', marginTop: '80px', borderRadius: '16px' }
   };
 
   return (
-    <div id="contact" style={styles.container}>
-      {/* SECTION HEADER */}
-      <div style={styles.headerArea}>
-        <span style={styles.tag}>Let's Connect</span>
-        <h2 style={styles.h2}>Start A Project With YUKA</h2>
-        <div style={styles.line}></div>
-        <p style={styles.subtext}>
-          फक्त पोस्ट नाही... पूर्ण डिजिटल गेम बदलायचा आहे? मग खालील फॉर्म भरा, आमची टीम तुमच्याशी २४ तासांच्या आत संपर्क करेल!
-        </p>
-      </div>
-
-      {/* CONTACT GRID */}
-      <div style={styles.grid}>
-        
-        {/* LEFT COLUMN: LEAD GENERATION FORM */}
-        <div style={styles.formBox}>
-          <form onSubmit={handleSubmit}>
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Full Name</label>
-              <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} placeholder="तुमचे नाव" style={styles.input} required />
-            </div>
-            
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Business Name</label>
-              <input type="text" name="businessName" value={formData.businessName} onChange={handleChange} placeholder="तुमच्या कंपनीचे नाव" style={styles.input} />
-            </div>
-
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Email Address</label>
-              <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="example@gmail.com" style={styles.input} required />
-            </div>
-
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Phone / WhatsApp</label>
-              <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="9876XXXXXX" style={styles.input} required />
-            </div>
-
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Service Needed</label>
-              <select name="serviceNeeded" value={formData.serviceNeeded} onChange={handleChange} style={styles.select}>
-                <option value="Creative Branding">Creative Branding & Identity</option>
-                <option value="Social Media">Social Media Management</option>
-                <option value="AI Video">AI Video Production & Reels</option>
-                <option value="Web Development">Web & UI/UX Development</option>
-                <option value="Performance Marketing">Performance Marketing</option>
-              </select>
-            </div>
-
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Budget Range</label>
-              <select name="budgetRange" value={formData.budgetRange} onChange={handleChange} style={styles.select}>
-                <option value="Under ₹25k">Under ₹25,000</option>
-                <option value="₹25k - ₹50k">₹25,000 - ₹50,000</option>
-                <option value="₹50k - ₹1 Lakh">₹50,000 - ₹1,000,000</option>
-                <option value="₹1 Lakh+">₹1,000,000+</option>
-              </select>
-            </div>
-
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Message</label>
-              <textarea name="message" value={formData.message} onChange={handleChange} placeholder="तुमच्या प्रोजेक्टबद्दल थोडक्यात सांगा..." style={styles.textarea}></textarea>
-            </div>
-
-            <button type="submit" style={styles.submitBtn}>Submit Request 🚀</button>
-          </form>
+    <div id="contact" style={styles.wrapper}>
+      {/* HERO */}
+      <section style={styles.hero}>
+        <div style={styles.container}>
+          <h1 style={styles.heroH1}>Let's Talk About Your Business.</h1>
+          <p style={styles.subtext}>Have a business idea, a marketing challenge or a digital presence that needs improvement?</p>
         </div>
+      </section>
 
-        {/* RIGHT COLUMN: CONTACT INFO & MAP */}
-        <div style={styles.infoBox}>
+      <div style={styles.container}>
+        {/* CONTACT GRID */}
+        <div style={styles.grid}>
           
-          {/* Direct Contact Card */}
-          <div style={styles.infoCard}>
-            <h3 style={styles.infoTitle}>Contact Information</h3>
-            <p style={styles.infoText}>📧 <strong>Official Email:</strong> hello@yukadigitalmedia.com</p>
-            <p style={styles.infoText}>📞 <strong>Phone Number:</strong> +91 98765 43210</p>
-            <p style={styles.infoText}>📍 <strong>Studio Address:</strong> Registered Office, Studio Block, Pune, Maharashtra.</p>
-            
-            <a href="https://wa.me" target="_blank" rel="noreferrer" style={styles.whatsappFloat}>
-              💬 Quick WhatsApp Chat
-            </a>
+          {/* LEFT COLUMN: CONTACT DETAILS */}
+          <div style={styles.infoColumn}>
+            <div style={styles.infoGroup}>
+              <h3 style={{ ...styles.officeTitle, color: '#00A6FB', fontSize: '22px', marginBottom: '20px' }}>YUKA DIGITAL MEDIA</h3>
+              <p style={styles.infoText}>📞 <strong>Phone:</strong> 9028190902 / 8600771113</p>
+              <p style={styles.infoText}>📧 <strong>Email:</strong> yukadigitalmedia@gmail.com</p>
+            </div>
 
-            {/* Social Handles */}
-            <div style={styles.socialContainer}>
-              <p style={styles.socialTitle}>Follow YUKA Persona</p>
+            <div style={styles.infoGroup}>
+              <h3 style={styles.officeTitle}>AHILYANAGAR OFFICE</h3>
+              <p style={styles.infoText}>Plot No. 102, Bhagwan Baba Chowk, Near Mule STD, Nirmal Nagar, Ahilyanagar – 414003</p>
+              <a href="#directions" style={styles.dirBtn}>Get Directions →</a>
+            </div>
+
+            <div style={styles.infoGroup}>
+              <h3 style={styles.officeTitle}>PUNE OFFICE</h3>
+              <p style={styles.infoText}>Flat No. F-402, Dreams Rakshak Society, Gade Vasti, Bakori Road, Wagholi – 412207</p>
+              <a href="#directions" style={styles.dirBtn}>Get Directions →</a>
+            </div>
+
+            <div style={styles.infoGroup}>
+              <h3 style={{ ...styles.officeTitle, fontSize: '16px' }}>Follow Us</h3>
               <div style={styles.socialFlex}>
-                <a href="#instagram" style={styles.socialLink}>IG</a>
-                <a href="#linkedin" style={styles.socialLink}>LN</a>
-                <a href="#youtube" style={styles.socialLink}>YT</a>
-                <a href="#facebook" style={styles.socialLink}>FB</a>
+                <a href="#instagram" style={styles.socialLink}>Instagram</a>
+                <a href="#facebook" style={styles.socialLink}>Facebook</a>
               </div>
             </div>
           </div>
 
-          {/* Office Location Map Placeholder */}
-          <div style={styles.mapBox}>
-            📍 Interactive Google Map Embed Space
+          {/* RIGHT COLUMN: ENQUIRY FORM */}
+          <div style={styles.formBox}>
+            <h3 style={{ ...styles.officeTitle, marginBottom: '25px', textAlign: 'center' }}>ENQUIRY FORM</h3>
+            <form onSubmit={handleSubmit}>
+              <div style={styles.formGroup}>
+                <label style={styles.label}>Name</label>
+                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" style={styles.input} required />
+              </div>
+              
+              <div style={styles.formGroup}>
+                <label style={styles.label}>Business Name</label>
+                <input type="text" name="businessName" value={formData.businessName} onChange={handleChange} placeholder="Your Business Name" style={styles.input} />
+              </div>
+
+              <div style={styles.formGroup}>
+                <label style={styles.label}>Phone</label>
+                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Your Phone Number" style={styles.input} required />
+              </div>
+
+              <div style={styles.formGroup}>
+                <label style={styles.label}>Email</label>
+                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Your Email Address" style={styles.input} required />
+              </div>
+
+              <div style={styles.formGroup}>
+                <label style={styles.label}>Service Requirement</label>
+                <select name="serviceRequirement" value={formData.serviceRequirement} onChange={handleChange} style={styles.select}>
+                  <option value="Social Media">Social Media</option>
+                  <option value="Content Creation">Content Creation</option>
+                  <option value="Digital Branding">Digital Branding</option>
+                  <option value="Digital Advertising">Digital Advertising</option>
+                  <option value="Strategy & Consulting">Strategy & Consulting</option>
+                  <option value="Website & Presence">Website & Digital Presence</option>
+                </select>
+              </div>
+
+              <button type="submit" style={styles.submitBtn}>Send Requirement</button>
+            </form>
           </div>
 
+        </div>
+
+        {/* FULL WIDTH MAP PLACEHOLDER */}
+        <div style={{ marginTop: '50px' }}>
+          <h3 style={{ ...styles.officeTitle, marginBottom: '15px' }}>Office Locations Map</h3>
+          <div style={styles.mapSection}>
+            📍 Ahilyanagar & Pune Interactive Office Markers Embed Space
+          </div>
+        </div>
+
+        {/* FINAL CLOSING CTA BLOCK */}
+        <div style={styles.finalBlock}>
+          <h2 style={{ fontSize: '36px', fontWeight: 800, margin: 0 }}>Your Next Digital Move Starts Here.</h2>
+          <a href="#contact" style={{ ...styles.submitBtn, width: 'auto', display: 'inline-block', marginTop: '25px', padding: '15px 40px', textDecoration: 'none' }}>Let's Talk →</a>
         </div>
 
       </div>
